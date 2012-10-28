@@ -10,7 +10,7 @@ URL:		http://oss.sgi.com/projects/xfs/
 BuildRequires:	attr-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gettext-devel
+BuildRequires:	gettext
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
