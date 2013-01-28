@@ -1,7 +1,7 @@
 Summary:	Command and library for manipulating access control lists
 Name:		acl
 Version:	2.2.51
-Release:	1
+Release:	2
 License:	LGPL v2+ (library), GPL v2 (utilities)
 Group:		Applications/System
 Source0:	http://download.savannah.gnu.org/releases/acl/%{name}-%{version}.src.tar.gz
@@ -12,6 +12,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext
 BuildRequires:	libtool
+Requires:	attr
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
