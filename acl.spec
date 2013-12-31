@@ -1,15 +1,13 @@
 Summary:	Command and library for manipulating access control lists
 Name:		acl
-Version:	2.2.51
-Release:	2
+Version:	2.2.52
+Release:	1
 License:	LGPL v2+ (library), GPL v2 (utilities)
 Group:		Applications/System
 Source0:	http://download.savannah.gnu.org/releases/acl/%{name}-%{version}.src.tar.gz
-# Source0-md5:	3fc0ce99dc5253bdcce4c9cd437bc267
+# Source0-md5:	a61415312426e9c2212bd7dc7929abda
 URL:		http://oss.sgi.com/projects/xfs/
 BuildRequires:	attr-devel
-BuildRequires:	autoconf
-BuildRequires:	automake
 BuildRequires:	gettext
 BuildRequires:	libtool
 Requires:	attr
@@ -33,8 +31,6 @@ lists.
 
 %build
 %{__libtoolize}
-%{__aclocal} -I m4
-%{__autoconf}
 %configure \
 	--disable-static
 %{__make} \
