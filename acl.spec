@@ -1,12 +1,12 @@
-Summary:	Command and library for manipulating access control lists
+Summary:	Utilities for managing
 Name:		acl
 Version:	2.2.52
-Release:	1
+Release:	2
 License:	LGPL v2+ (library), GPL v2 (utilities)
-Group:		Applications/System
+Group:		Core/System
 Source0:	http://download.savannah.gnu.org/releases/acl/%{name}-%{version}.src.tar.gz
 # Source0-md5:	a61415312426e9c2212bd7dc7929abda
-URL:		http://oss.sgi.com/projects/xfs/
+URL:		http://savannah.nongnu.org/projects/acl
 BuildRequires:	attr-devel
 BuildRequires:	gettext
 BuildRequires:	libtool
@@ -14,17 +14,16 @@ Requires:	attr
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-A command (chacl) and a library (libacl) to manipulate POSIX access
-control lists under Linux.
+A set of tools for manipulating ACL on filesystem objects.
 
 %package devel
-Summary:	Header files for acl library
+Summary:	Header files and libraries for acl development
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
-Header files to develop software which manipulate access control
-lists.
+Header files and libraries needed to develop programs which make use
+of access control lists.
 
 %prep
 %setup -q
@@ -44,8 +43,7 @@ install -d $RPM_BUILD_ROOT{%{_includedir}/acl,%{_mandir}/man3}
 %{__make} install install-lib install-dev \
 	DIST_ROOT=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_mandir}/man3/{acl_copy_int,acl_set_fd,acl_set_file}.3
-rm -f $RPM_BUILD_ROOT%{_mandir}/man3/{acl_to_short_text,acl_to_text}.3
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/man3/{acl_copy_int,acl_set_fd,acl_set_file,acl_to_text}.3
 
 echo ".so acl_copy_ext.3"  > $RPM_BUILD_ROOT%{_mandir}/man3/acl_copy_int.3
 echo ".so acl_get_fd.3"    > $RPM_BUILD_ROOT%{_mandir}/man3/acl_set_fd.3
@@ -53,7 +51,7 @@ echo ".so acl_get_file.3"  > $RPM_BUILD_ROOT%{_mandir}/man3/acl_set_file.3
 echo ".so acl_from_text.3" > $RPM_BUILD_ROOT%{_mandir}/man3/acl_to_short_text.3
 echo ".so acl_from_text.3" > $RPM_BUILD_ROOT%{_mandir}/man3/acl_to_text.3
 
-rm -rf $RPM_BUILD_ROOT%{_docdir}/%{name}
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/%{name}
 
 %find_lang %{name}
 
