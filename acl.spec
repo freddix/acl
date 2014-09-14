@@ -1,7 +1,8 @@
+# based on PLD Linux spec git://git.pld-linux.org/packages/acl.git
 Summary:	Utilities for managing
 Name:		acl
 Version:	2.2.52
-Release:	2
+Release:	3
 License:	LGPL v2+ (library), GPL v2 (utilities)
 Group:		Core/System
 Source0:	http://download.savannah.gnu.org/releases/acl/%{name}-%{version}.src.tar.gz
